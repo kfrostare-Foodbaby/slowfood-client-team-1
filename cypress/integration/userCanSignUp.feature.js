@@ -7,7 +7,7 @@ describe("user can sign up", () => {
   it("successfully", () => {
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/auth/sign_up",
+      url: "http://localhost:3000/api/auth/",
       response: "fixture:registration.json",
       headers: {
         uid: 'user@mail.com'
@@ -30,7 +30,7 @@ describe("user can sign up", () => {
   it("with invalid credentials", () => {
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/auth/sign_up",
+      url: "http://localhost:3000/api/auth/",
       status: "401",
       response: {
         errors: ["Invalid entries. Please try again."]

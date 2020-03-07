@@ -15,7 +15,7 @@ const authenticate = async (email, password) => {
 
 const register = async (name, email, password, confirm_password) => {
     try {
-      const response = await axios.post("auth/sign_up", {
+      const response = await axios.post("auth/", {
         name: name,
         email: email,
         password: password,
@@ -26,7 +26,6 @@ const register = async (name, email, password, confirm_password) => {
       return { authenticated: true };
   
     } catch (error) {
-        debugger
       return { authenticated: false, message: error.response.data.errors };
     }
   };
