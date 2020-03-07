@@ -14,11 +14,21 @@ describe("user can view menu by category", () => {
     });
 
     it("successfully show starters", () => {
-      cy.get("#index").within(() => {
-        cy.get("#starter").click();
-        cy.should("contain", "Salad");
-        cy.should("not_contain", "Spaghetti and Meatballs");
-        cy.should("not_contain", "Ice Cream");
+      cy.get("#starter-index").within(() => {
+        // cy.get("#starter").click();
+        cy.contains("Salad");
+      });
+    });
+    it("successfully show entrees", () => {
+      cy.get("#entree-index").within(() => {
+        // cy.get("#starter").click();
+        cy.contains("Spagetti and Meatballs");
+      });
+    });
+    it("successfully show desserts", () => {
+      cy.get("#dessert-index").within(() => {
+        // cy.get("#starter").click();
+        cy.contains("Ice-Cream");
       });
     });
   });
