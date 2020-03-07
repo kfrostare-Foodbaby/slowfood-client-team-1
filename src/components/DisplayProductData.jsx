@@ -28,9 +28,8 @@ class DisplayProductData extends Component {
             if (item.category === "starter") {
               return (
                 <div key={item.id}>
-                  {item.name}
-                  {item.description}
-                  {item.price}
+                  <h4>{item.name}</h4>
+                  {item.description} {item.price}kr
                 </div>
 							);
 						}
@@ -43,9 +42,8 @@ class DisplayProductData extends Component {
             if (item.category === "entree") {
               return (
                 <div key={item.id}>
-                  {item.name}
-                  {item.description}
-                  {item.price}
+                  <h4>{item.name}</h4>
+                  {item.description} {item.price}kr
                 </div>
 							);
 						}
@@ -58,9 +56,8 @@ class DisplayProductData extends Component {
             if (item.category === "dessert") {
               return (
                 <div key={item.id}>
-                  {item.name}
-                  {item.description}
-                  {item.price}
+                  <h4>{item.name}</h4>
+                  {item.description} {item.price}kr
                 </div>
 							);
 						}
@@ -72,11 +69,11 @@ class DisplayProductData extends Component {
     return (
       <>
         <h2>Starters</h2>
-        <div>{starterIndex}</div>
+        {starterIndex}
 				<h2>Entrees</h2>
-				<div>{entreeIndex}</div>
+				{entreeIndex}
 				<h2>Dessert</h2>
-				<div>{dessertIndex}</div>
+			  {dessertIndex}
       </>
     );
   }

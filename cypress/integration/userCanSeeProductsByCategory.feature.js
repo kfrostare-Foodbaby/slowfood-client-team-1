@@ -13,23 +13,14 @@ describe("user can view menu by category", () => {
       });
     });
 
-    it("successfully show starters", () => {
-      cy.get("#starter-index").within(() => {
-        // cy.get("#starter").click();
-        cy.contains("Salad");
-      });
+    it("successfully for starter", () => {
+      cy.get("#starter-index").should('contain', 'Salad')
+      cy.get("#starter-index").should('not.contain',"Spaghetti and Meatballs" )
+      cy.get("#starter-index").should('not.contain',"Ice Cream" )
+
+      cy.get("#entree-index").should('contain',"Spaghetti and Meatballs" )
+      cy.get("#dessert-index").should('contain',"Ice Cream" )
     });
-    it("successfully show entrees", () => {
-      cy.get("#entree-index").within(() => {
-        // cy.get("#starter").click();
-        cy.contains("Spagetti and Meatballs");
-      });
-    });
-    it("successfully show desserts", () => {
-      cy.get("#dessert-index").within(() => {
-        // cy.get("#starter").click();
-        cy.contains("Ice-Cream");
-      });
+
     });
   });
-});
