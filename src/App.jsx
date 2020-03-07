@@ -1,77 +1,75 @@
 import React, { Component } from "react";
 import DisplayProductData from "./components/DisplayProductData";
 import LoginForm from "./components/LoginForm";
-import { authenticate } from "./modules/authenticate";
-import { register } from "./modules/registration";
+import { authenticate, register } from "./modules/authenticate";
 import RegistrationForm from "./components/RegistrationForm";
 
 class App extends Component {
   state = {
     renderLoginForm: false,
     authenticated: false,
-    renderRegistrationForm: false,
-    registered: false
+    renderRegistrationForm: false
   };
 
-  onLogin = async e => {
+  onSignIn = async e => {
+    let response;
     e.preventDefault();
-    const response = await authenticate(
-      e.target.email.value,
-      e.target.password.value
-    );
+    if (e.target.id === "signup") {
+      response = await register(
+        e.target.name.value,
+        e.target.email.value,
+        e.target.password.value,
+        e.target.confirm_password.value
+      );
+    } else {
+      response = await authenticate(
+        e.target.email.value,
+        e.target.password.value
+      );
+    }
+
     if (response.authenticated) {
       this.setState({ authenticated: true });
     } else {
-      this.setState({ message: response.message, renderLoginForm: false });
-    }
-  };
-
-  onRegister = async e => {
-    e.preventDefault();
-    const response = await register(
-      e.target.name.value,
-      e.target.email.value,
-      e.target.password.value,
-      e.target.confirm_password.value
-    );
-    if (response.registered) {
-      this.setState({ registered: true });
-    } else {
-      this.setState({ message: response.message, renderRegistrationForm: false });
+      this.setState({
+        message: response.message[0],
+        renderRegistrationForm: false,
+        renderLoginForm: false
+      });
     }
   };
 
   render() {
-    const { renderLoginForm, authenticated, message, renderRegistrationForm, registered } = this.state;
-    let renderResponse;
+    const {
+      renderLoginForm,
+      renderRegistrationForm,
+      authenticated,
+      message
+    } = this.state;
     let renderLogin;
-    let renderRegister
-    
+    let renderRegister;
+    let renderResponse;
+    let renderSignIn;
+
     switch (true) {
-      case renderLoginForm && !authenticated:
-        renderLogin = <LoginForm submitFormHandler={this.onLogin} />;
-        break;
       case renderRegistrationForm && !authenticated:
-        renderRegister = <RegistrationForm submitFormHandler={this.onRegister} />;
+        renderRegister = <RegistrationForm submitFormHandler={this.onSignIn} />;
         break;
-      case !renderRegistrationForm && !authenticated: 
-        renderRegister = (
+      case renderLoginForm && !authenticated:
+        renderLogin = <LoginForm submitFormHandler={this.onSignIn} />;
+        break;
+      case !authenticated:
+        renderSignIn = (
           <>
             <button
-              id="register"
+              id="render-signup"
               onClick={() => this.setState({ renderRegistrationForm: true })}
             >
               Sign up
             </button>
-            <p id="registered_message">{message}</p>
-          </>
-        );
-        break;
-      case !renderLoginForm && !authenticated:
-        renderLogin = (
-          <>
+
             <button
-              id="login"
+              id="render-login"
               onClick={() => this.setState({ renderLoginForm: true })}
             >
               Login
@@ -82,21 +80,19 @@ class App extends Component {
         break;
       case authenticated:
         renderResponse = (
-          <p id="message">Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}</p>
+          <p id="message">
+            Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}
+          </p>
         );
         break;
-      case registered:
-        renderResponse = (
-          <p id="message">Your account was successfully created</p>
-        );
-          break;        
     }
-
     return (
       <>
         <h1>Slowfood</h1>
         {renderLogin}
         {renderRegister}
+        {renderResponse}
+        {renderSignIn}
         <DisplayProductData />
       </>
     );

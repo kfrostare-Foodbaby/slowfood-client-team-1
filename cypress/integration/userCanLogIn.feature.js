@@ -15,7 +15,7 @@ describe('User can log in', () => {
             }
         });
       cy.get('#render-login').click();
-      cy.get('#login-form').within(() => {
+      cy.get('#login').within(() => {
           cy.get('#email').type('user@mail.com');
           cy.get('#password').type('password');
           cy.get('button').contains('Submit').click()
@@ -34,7 +34,7 @@ describe('User can log in', () => {
           }
       });
         cy.get("#render-login").click();
-        cy.get('#login-form').within(() => {
+        cy.get('#login').within(() => {
             cy.get('#email').type('user@mail.com');
             cy.get('#password').type('wrongpassword');
             cy.get('button').contains('Submit').click()
