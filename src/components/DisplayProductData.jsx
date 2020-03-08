@@ -31,12 +31,12 @@ class DisplayProductData extends Component {
                   <h4>{item.name}</h4>
                   {item.description} {item.price}kr
                 </div>
-							);
-						}
+              );
+            }
           })}
         </div>
-			);
-			entreeIndex = (
+      );
+      entreeIndex = (
         <div id="entree-index">
           {this.state.productData.map(item => {
             if (item.category === "entree") {
@@ -45,12 +45,12 @@ class DisplayProductData extends Component {
                   <h4>{item.name}</h4>
                   {item.description} {item.price}kr
                 </div>
-							);
-						}
+              );
+            }
           })}
         </div>
-			);
-			dessertIndex = (
+      );
+      dessertIndex = (
         <div id="dessert-index">
           {this.state.productData.map(item => {
             if (item.category === "dessert") {
@@ -59,21 +59,21 @@ class DisplayProductData extends Component {
                   <h4>{item.name}</h4>
                   {item.description} {item.price}kr
                 </div>
-							);
-						}
+              );
+            }
           })}
         </div>
-			);
+      );
     }
 
     return (
       <>
         <h2>Starters</h2>
         {starterIndex}
-				<h2>Entrees</h2>
-				{entreeIndex}
-				<h2>Dessert</h2>
-			  {dessertIndex}
+        <h2>Entrees</h2>
+        {entreeIndex}
+        <h2>Dessert</h2>
+        {dessertIndex}
       </>
     );
   }

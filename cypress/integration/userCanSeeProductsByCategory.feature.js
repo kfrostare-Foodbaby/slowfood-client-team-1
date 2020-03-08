@@ -14,13 +14,12 @@ describe("user can view menu by category", () => {
     });
 
     it("successfully for starter", () => {
-      cy.get("#starter-index").should('contain', 'Salad')
-      cy.get("#starter-index").should('not.contain',"Spaghetti and Meatballs" )
-      cy.get("#starter-index").should('not.contain',"Ice Cream" )
+      cy.get("#starter-index").should("contain", "Salad");
+      cy.get("#starter-index").should("not.contain", "Spaghetti and Meatballs");
+      cy.get("#starter-index").should("not.contain", "Ice Cream");
 
-      cy.get("#entree-index").should('contain',"Spaghetti and Meatballs" )
-      cy.get("#dessert-index").should('contain',"Ice Cream" )
-    });
-
+      cy.get("#entree-index").should("contain", "Spaghetti and Meatballs");
+      cy.get("#dessert-index").should("contain", "Ice Cream");
     });
   });
+});

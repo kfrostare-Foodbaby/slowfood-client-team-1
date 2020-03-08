@@ -10,10 +10,10 @@ describe("user can sign up", () => {
       url: "http://localhost:3000/api/auth/",
       response: "fixture:registration.json",
       headers: {
-        uid: 'user@mail.com'
-    }
+        uid: "user@mail.com"
+      }
     });
-    
+
     cy.get("#render-signup").click();
     cy.get("#signup").within(() => {
       cy.get("#name").type("Mike Shum");
