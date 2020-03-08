@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { getData } from "../modules/productData";
+import axios from 'axios';
 
 class DisplayProductData extends Component {
   state = {
-    productData: []
+    productData: [],
+    message: {}
   };
 
   componentDidMount() {
@@ -13,6 +15,12 @@ class DisplayProductData extends Component {
   async getProductData() {
     let result = await getData();
     this.setState({ productData: result.data.products });
+  }
+
+  async addToOrder(event) {
+    let id = event.target.parentElement.dataset.id
+    let result = await axios.post('http://localhost:3000/api/orders', { id: id } )
+    this.setState({message: {id: id, message: result.data.message}})
   }
 
   render() {
@@ -27,9 +35,11 @@ class DisplayProductData extends Component {
           {this.state.productData.map(item => {
             if (item.category === "starter") {
               return (
-                <div key={item.id}>
+                <div key={item.id} id={`product-${item.id}`} data-id={item.id} data-price={item.price}>
                   <h4>{item.name}</h4>
                   {item.description} {item.price}kr
+                  <button id='button' onClick={this.addToOrder.bind(this)}>Add to order</button>
+                  {parseInt(this.state.message.id) === item.id && <p class='message'>{this.state.message.message}</p>}
                 </div>
 							);
 						}
@@ -41,9 +51,11 @@ class DisplayProductData extends Component {
           {this.state.productData.map(item => {
             if (item.category === "entree") {
               return (
-                <div key={item.id}>
+                <div key={item.id} id={`product-${item.id}`} data-id={item.id} data-price={item.price}>
                   <h4>{item.name}</h4>
                   {item.description} {item.price}kr
+                  <button id='button' onClick={this.addToOrder.bind(this)}>Add to order</button>
+                  {parseInt(this.state.message.id) === item.id && <p class='message'>{this.state.message.message}</p>}
                 </div>
 							);
 						}
@@ -55,9 +67,11 @@ class DisplayProductData extends Component {
           {this.state.productData.map(item => {
             if (item.category === "dessert") {
               return (
-                <div key={item.id}>
+                <div key={item.id} id={`product-${item.id}`} data-id={item.id} data-price={item.price}>
                   <h4>{item.name}</h4>
                   {item.description} {item.price}kr
+                  <button id='button' onClick={this.addToOrder.bind(this)}>Add to order</button>
+                  {parseInt(this.state.message.id) === item.id && <p class='message'>{this.state.message.message}</p>}
                 </div>
 							);
 						}
