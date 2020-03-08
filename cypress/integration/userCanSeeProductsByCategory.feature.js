@@ -1,4 +1,4 @@
-describe("user views menus", () => {
+describe("user can view menu by category", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3001");
 
@@ -20,7 +20,7 @@ describe("user views menus", () => {
     });
   });
 
-  describe("whar there are products", () => {
+  describe("where there are categories", () => {
     before(() => {
       cy.server();
       cy.route({
@@ -30,27 +30,13 @@ describe("user views menus", () => {
       });
     });
 
-    it("successfully", () => {
+    it("successfully for starter", () => {
       cy.get("#starter-index").should("contain", "Salad");
+      cy.get("#starter-index").should("not.contain", "Spaghetti and Meatballs");
+      cy.get("#starter-index").should("not.contain", "Ice Cream");
+
       cy.get("#entree-index").should("contain", "Spaghetti and Meatballs");
       cy.get("#dessert-index").should("contain", "Ice Cream");
-    });
-  });
-
-  describe("when the are NO products", () => {
-    before(() => {
-      cy.server();
-      cy.route({
-        method: "GET",
-        url: "http://localhost:3000/api/products",
-        response: []
-      });
-    });
-
-    it("unsuccessfully", () => {
-      cy.get("#starterIndex").should("not.exist");
-      cy.get("#entreeIndex").should("not.exist");
-      cy.get("#dessertIndex").should("not.exist");
     });
   });
 });
