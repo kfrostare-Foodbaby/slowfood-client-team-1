@@ -1,7 +1,6 @@
 describe("user views menus", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3001");
-
     cy.route({
       method: "POST",
       url: "http://localhost:3000/api/auth/sign_in",
