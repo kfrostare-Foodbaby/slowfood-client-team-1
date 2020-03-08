@@ -1,4 +1,3 @@
-
 describe("User can add a product to his/her order", () => {
   beforeEach(() => {
     cy.server();
@@ -23,19 +22,21 @@ describe("User can add a product to his/her order", () => {
     cy.visit("http://localhost:3001");
 
     cy.route({
-      method: 'POST',
+      method: "POST",
       url: "http://localhost:3000/api/auth/sign_in",
-      response: 'fixture:login.json',
+      response: "fixture:login.json",
       headers: {
-          uid: 'user@mail.com'
+        uid: "user@mail.com"
       }
-  });
-cy.get('#render-login').click();
-cy.get('#login').within(() => {
-    cy.get('#email').type('user@mail.com');
-    cy.get('#password').type('password');
-    cy.get('button').contains('Submit').click()
-});
+    });
+    cy.get("#render-login").click();
+    cy.get("#login").within(() => {
+      cy.get("#email").type("user@mail.com");
+      cy.get("#password").type("password");
+      cy.get("button")
+        .contains("Submit")
+        .click();
+    });
   });
 
   it("user can add multiple product to order and view its content", () => {
