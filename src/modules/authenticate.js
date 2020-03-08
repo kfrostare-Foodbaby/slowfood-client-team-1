@@ -9,9 +9,26 @@ const authenticate = async (email, password) => {
         await storeAuthCredentials(response);
         return { authenticated: true };
     } catch (error) {
-        return { authenticated: false, message: 'Invalid login credentials. Please try again.' };
+        return { authenticated: false, message: error.response.data.errors };
     }
 };
+
+const register = async (name, email, password, confirm_password) => {
+    try {
+      const response = await axios.post("auth/", {
+        name: name,
+        email: email,
+        password: password,
+        confirm_password: confirm_password
+      });
+      
+      await storeAuthCredentials(response);
+      return { authenticated: true };
+  
+    } catch (error) {
+      return { authenticated: false, message: error.response.data.errors };
+    }
+  };
 
 const storeAuthCredentials = ({ headers }) => {
     const credentials = {
@@ -24,4 +41,5 @@ const storeAuthCredentials = ({ headers }) => {
     sessionStorage.setItem('credentials', JSON.stringify(credentials));
 };
 
-export { authenticate }
+
+export { authenticate, register }
