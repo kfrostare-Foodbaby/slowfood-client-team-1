@@ -1,6 +1,23 @@
 describe("user can view menu by category", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3001");
+
+    cy.route({
+      method: "POST",
+      url: "http://localhost:3000/api/auth/sign_in",
+      response: "fixture:login.json",
+      headers: {
+        uid: "user@mail.com"
+      }
+    });
+    cy.get("#render-login").click();
+    cy.get("#login").within(() => {
+      cy.get("#email").type("user@mail.com");
+      cy.get("#password").type("password");
+      cy.get("button")
+        .contains("Submit")
+        .click();
+    });
   });
 
   describe("where there are categories", () => {
