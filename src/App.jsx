@@ -3,6 +3,7 @@ import DisplayMenuAndOrder from "./components/DisplayMenuAndOrder";
 import LoginForm from "./components/LoginForm";
 import { authenticate, register } from "./modules/authenticate";
 import RegistrationForm from "./components/RegistrationForm";
+import './index.css';
 
 class App extends Component {
   state = {
@@ -93,7 +94,8 @@ class App extends Component {
         {renderRegister}
         {renderResponse}
         {renderSignIn}
-        {this.state.authenticated === true && <DisplayMenuAndOrder />}
+        {/* {this.state.authenticated === true && <DisplayMenuAndOrder />} */}
+        <DisplayMenuAndOrder />
       </>
     );
   }
