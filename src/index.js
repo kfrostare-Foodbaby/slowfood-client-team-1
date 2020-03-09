@@ -5,7 +5,7 @@ import * as serviceWorker from "./serviceWorker";
 import axios from "axios";
 //import Testing from './Testing';
 
-axios.defaults.baseURL = "https://yummy-food-api.herokuapp.com";
+axios.defaults.baseURL = "https://yummy-food-api.herokuapp.com/api/";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

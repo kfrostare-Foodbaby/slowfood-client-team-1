@@ -3,8 +3,6 @@ import React from 'react'
 const RegistrationForm = ({ submitFormHandler }) => {
   return (
     <form onSubmit={submitFormHandler} id='signup'>
-      <label>Full Name</label>
-      <input name='name' type='text' id='name'></input>
 
       <label>Email</label>
       <input name='email' type='email' id='email'></input>
