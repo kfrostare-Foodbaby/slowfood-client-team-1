@@ -86,4 +86,15 @@ describe("User can add a product to his/her order", () => {
 
     cy.get("#order-details").should("not.exist");
   });
+
+  it('user can confirm order', () => {
+    cy.get("button")
+      .contains("View order")
+      .click();
+
+    cy.get('#confirm').click()
+    cy.get('')
+  })
 });
+
+

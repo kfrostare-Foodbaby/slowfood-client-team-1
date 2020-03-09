@@ -39,9 +39,9 @@ class DisplayMenuAndOrder extends Component {
     });
   }
 
-  finalizeOrder() {
-    this.setState({
-      message: { id: 0, message: "Your order will be ready in 30 minutes!" }
+  async confirmOrder() {
+      let result = await axios.put(`/orders/${this.state.orderDetails.id}`, { activity: 'confirm' })
+      this.setState({ message: { id: 0, message: result.data.message }, orderDetails: {}
     });
   }
 
@@ -150,7 +150,7 @@ class DisplayMenuAndOrder extends Component {
           <>
             <ul id="order-details">{orderDetailsDisplay}</ul>
             <p>Total: {this.state.orderDetails.order_total} kr</p>
-            <button onClick={this.finalizeOrder.bind(this)}>Confirm!</button>
+            <button id='confirm' onClick={this.confirmOrder.bind(this)}>Confirm Order</button>
           </>
         )}
         <h2>Starters</h2>
