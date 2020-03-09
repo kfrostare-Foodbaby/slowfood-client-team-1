@@ -7,7 +7,7 @@ describe("user can sign up", () => {
   it("successfully", () => {
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/auth/",
+      url: "https://yummy-food-api.herokuapp.com/api/auth/",
       response: "fixture:registration.json",
       headers: {
         uid: "user@mail.com"
@@ -16,7 +16,6 @@ describe("user can sign up", () => {
 
     cy.get("#render-signup").click();
     cy.get("#signup").within(() => {
-      cy.get("#name").type("Mike Shum");
       cy.get("#email").type("user@mail.com");
       cy.get("#password").type("password");
       cy.get("#confirm_password").type("password");
@@ -30,7 +29,7 @@ describe("user can sign up", () => {
   it("with invalid credentials", () => {
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/auth/",
+      url: "https://yummy-food-api.herokuapp.com/api/auth/",
       status: "401",
       response: {
         errors: ["Invalid entries. Please try again."]
@@ -39,7 +38,6 @@ describe("user can sign up", () => {
 
     cy.get("#render-signup").click();
     cy.get("#signup").within(() => {
-      cy.get("#name").type("Mike Shum");
       cy.get("#email").type("user@mail.com");
       cy.get("#password").type("password");
       cy.get("#confirm_password").type("passworddd");
