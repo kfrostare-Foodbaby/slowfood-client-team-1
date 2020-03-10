@@ -39,9 +39,9 @@ class DisplayMenuAndOrder extends Component {
     });
   }
 
-  finalizeOrder() {
-    this.setState({
-      message: { id: 0, message: "Your order will be ready in 30 minutes!" }
+  async confirmOrder() {
+      let result = await axios.put(`/orders/${this.state.orderDetails.id}`, { activity: 'confirm' })
+      this.setState({ message: { id: 0, message: result.data.message }, orderDetails: {}
     });
   }
 

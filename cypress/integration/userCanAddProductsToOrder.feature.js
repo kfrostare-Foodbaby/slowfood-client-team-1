@@ -85,5 +85,20 @@ describe("User can add a product to his/her order", () => {
       .click();
 
     cy.get("#order-details").should("not.exist");
+
+    cy.get("button")
+      .contains("View order")
+      .click();
+    cy.route({
+      method: 'PUT',
+      url: "http://localhost:3000/api/orders/1",
+      response: { message: 'Your order is ready to be picked up in 30 minutes' }
+    })
+
+    cy.get('#confirm').click()
+    cy.get('.message').should('contain', 'Your order is ready to be picked up in 30 minutes')
+
   });
 });
+
+
