@@ -65,8 +65,13 @@ class DisplayMenuAndOrder extends Component {
                 >
                   <h4>{item.name}</h4>
                   {item.description}, {item.price}kr
-                  <br></br><br></br>
-                  <button id="button" onClick={this.addToOrder.bind(this)} style={orderButton}>
+                  <br></br>
+                  <br></br>
+                  <button
+                    id="button"
+                    onClick={this.addToOrder.bind(this)}
+                    style={orderButton}
+                  >
                     Add to order
                   </button>
                   {parseInt(this.state.message.id) === item.id && (
@@ -91,8 +96,13 @@ class DisplayMenuAndOrder extends Component {
                 >
                   <h4>{item.name}</h4>
                   {item.description}, {item.price}kr
-                  <br></br><br></br>
-                  <button id="button" onClick={this.addToOrder.bind(this)} style={orderButton}>
+                  <br></br>
+                  <br></br>
+                  <button
+                    id="button"
+                    onClick={this.addToOrder.bind(this)}
+                    style={orderButton}
+                  >
                     Add to order
                   </button>
                   {parseInt(this.state.message.id) === item.id && (
@@ -117,8 +127,13 @@ class DisplayMenuAndOrder extends Component {
                 >
                   <h4>{item.name}</h4>
                   {item.description}, {item.price}kr
-                  <br></br><br></br>
-                  <button id="button" onClick={this.addToOrder.bind(this)} style={orderButton}>
+                  <br></br>
+                  <br></br>
+                  <button
+                    id="button"
+                    onClick={this.addToOrder.bind(this)}
+                    style={orderButton}
+                  >
                     Add to order
                   </button>
                   {parseInt(this.state.message.id) === item.id && (
@@ -144,7 +159,8 @@ class DisplayMenuAndOrder extends Component {
         )}
         {this.state.orderDetails.hasOwnProperty("products") && (
           <button
-            onClick={() => this.setState({ showOrder: !this.state.showOrder })} style={viewOrderButton}
+            onClick={() => this.setState({ showOrder: !this.state.showOrder })}
+            style={viewOrderButton}
           >
             View order
           </button>
@@ -153,7 +169,12 @@ class DisplayMenuAndOrder extends Component {
           <>
             <ul id="order-details">{orderDetailsDisplay}</ul>
             <p>Total: {this.state.orderDetails.order_total} kr</p>
-            <button onClick={this.finalizeOrder.bind(this)} style={viewOrderButton}>Confirm!</button>
+            <button
+              onClick={this.finalizeOrder.bind(this)}
+              style={viewOrderButton}
+            >
+              Confirm!
+            </button>
           </>
         )}
         <h2>Starters</h2>
@@ -169,43 +190,42 @@ class DisplayMenuAndOrder extends Component {
 export default DisplayMenuAndOrder;
 
 //inline styling
-
 const orderButton = {
-  backgroundColor: '#2C120D',
-  fontFamily: 'sans-serif',
-  fontSize: '12px',
-  color: 'antiquewhite',
-  borderRadius: '5px',
+  backgroundColor: "#2C120D",
+  fontFamily: "sans-serif",
+  fontSize: "12px",
+  color: "antiquewhite",
+  borderRadius: "5px",
 
-  paddingLeft: '20px',
-  paddingRight: '20px',
-  paddingTop: '20px',
-  paddingBottom: '20px',
+  paddingLeft: "20px",
+  paddingRight: "20px",
+  paddingTop: "20px",
+  paddingBottom: "20px",
 
-  marginRight: '70px',
+  marginRight: "70px",
 
-  float: 'right',
+  float: "right",
 
-  marginTop: '10px',
-  marginBottom: '10px',
-}
+  marginTop: "10px",
+  marginBottom: "10px"
+};
 
 const viewOrderButton = {
-  backgroundColor: '#EF1852',
-  fontFamily: 'sans-serif',
-  fontSize: '12px',
-  color: 'white',
-  borderRadius: '5px',
+  backgroundColor: "#EF1852",
+  fontFamily: "sans-serif",
+  fontSize: "12px",
+  color: "white",
+  borderRadius: "5px",
 
-  paddingLeft: '20px',
-  paddingRight: '20px',
-  paddingTop: '20px',
-  paddingBottom: '20px',
+  paddingLeft: "20px",
+  paddingRight: "20px",
+  paddingTop: "20px",
+  paddingBottom: "20px",
 
-  marginRight: '70px',
+  marginRight: "70px",
 
-  float: 'right',
+  float: "right",
 
-  marginTop: '10px',
-  marginBottom: '10px',
-}
+  marginTop: "10px",
+  marginBottom: "10px"
+};

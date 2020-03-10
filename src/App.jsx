@@ -3,7 +3,7 @@ import DisplayMenuAndOrder from "./components/DisplayMenuAndOrder";
 import LoginForm from "./components/LoginForm";
 import { authenticate, register } from "./modules/authenticate";
 import RegistrationForm from "./components/RegistrationForm";
-import './index.css';
+import "./index.css";
 
 class App extends Component {
   state = {
@@ -83,8 +83,8 @@ class App extends Component {
         break;
       case authenticated:
         renderResponse = (
-          <p id="message">
-            Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}
+          <p id="message" style={helloMessage}>
+            Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}! Hungry?
           </p>
         );
         break;
@@ -96,8 +96,8 @@ class App extends Component {
         {renderRegister}
         {renderResponse}
         {renderSignIn}
-        {/* {this.state.authenticated === true && <DisplayMenuAndOrder />} */}
-        <DisplayMenuAndOrder />
+        {this.state.authenticated === true && <DisplayMenuAndOrder />}
+        {/* <DisplayMenuAndOrder /> */}
       </>
     );
   }
@@ -106,31 +106,40 @@ export default App;
 
 //inline styling
 const signupButton = {
-  fontSize: '15px',
-  paddingLeft: '25px',
-  paddingRight: '25px',
-  paddingTop: '15px',
-  paddingBottom: '13px',
-  alignItems: 'center',
-  display: 'inline-block',
-  backgroundColor: '#2C120D',
-  color: 'antiquewhite',
-  borderRadius: '5px',
-  fontFamily: 'sans-serif',
-  marginBottom: '50px',
-  marginTop: '',
-}
+  fontSize: "15px",
+  paddingLeft: "25px",
+  paddingRight: "25px",
+  paddingTop: "15px",
+  paddingBottom: "13px",
+  alignItems: "center",
+  display: "inline-block",
+  backgroundColor: "#2C120D",
+  color: "antiquewhite",
+  borderRadius: "5px",
+  fontFamily: "sans-serif",
+  marginBottom: "50px",
+  marginTop: ""
+};
 const loginButton = {
-  fontSize: '15px',
-  marginLeft: '20px',
-  paddingLeft: '35px',
-  paddingRight: '30px',
-  paddingTop: '15px',
-  paddingBottom: '13px',
-  alignItems: 'center',
-  display: 'inline-block',
-  backgroundColor: '#2C120D',
-  color: 'antiquewhite',
-  borderRadius: '5px',
-  fontFamily: 'sans-serif'
-}
+  fontSize: "15px",
+  marginLeft: "20px",
+  paddingLeft: "35px",
+  paddingRight: "30px",
+  paddingTop: "15px",
+  paddingBottom: "13px",
+  alignItems: "center",
+  display: "inline-block",
+  backgroundColor: "#2C120D",
+  color: "antiquewhite",
+  borderRadius: "5px",
+  fontFamily: "sans-serif"
+};
+
+const helloMessage = {
+  fontFamily: "sans-serif",
+  fontSize: "30px",
+  color: '#EF1852',
+  display: 'flex',
+  flexDirection: 'column',
+  marginTop: '',
+};
