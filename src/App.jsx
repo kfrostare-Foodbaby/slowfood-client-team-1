@@ -64,6 +64,7 @@ class App extends Component {
           <>
             <button
               id="render-signup"
+              style={signupButton}
               onClick={() => this.setState({ renderRegistrationForm: true })}
             >
               Sign up
@@ -71,6 +72,7 @@ class App extends Component {
 
             <button
               id="render-login"
+              style={loginButton}
               onClick={() => this.setState({ renderLoginForm: true })}
             >
               Login
@@ -101,3 +103,32 @@ class App extends Component {
   }
 }
 export default App;
+
+//inline styling
+const signupButton = {
+  fontSize: '15px',
+  paddingLeft: '25px',
+  paddingRight: '25px',
+  paddingTop: '15px',
+  paddingBottom: '13px',
+  alignItems: 'center',
+  display: 'inline-block',
+  backgroundColor: '#4C392D',
+  color: 'white',
+  borderRadius: '5px',
+  fontFamily: 'Courier New'
+}
+const loginButton = {
+  fontSize: '15px',
+  marginLeft: '10px',
+  paddingLeft: '25px',
+  paddingRight: '25px',
+  paddingTop: '15px',
+  paddingBottom: '13px',
+  alignItems: 'center',
+  display: 'inline-block',
+  backgroundColor: '#4C392D',
+  color: 'white',
+  borderRadius: '5px',
+  fontFamily: 'Courier New'
+}
