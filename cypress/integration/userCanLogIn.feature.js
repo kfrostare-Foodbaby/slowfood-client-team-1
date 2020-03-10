@@ -7,7 +7,7 @@ describe("User can log in", () => {
   it("successfully", () => {
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/auth/sign_in",
+      url: "https://yummy-food-api.herokuapp.com/api/auth/sign_in",
       response: "fixture:login.json",
       headers: {
         uid: "user@mail.com"
@@ -27,7 +27,7 @@ describe("User can log in", () => {
   it("with invalid credentials", () => {
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/auth/sign_in",
+      url: "https://yummy-food-api.herokuapp.com/api/sign_in",
       status: "401",
       response: {
         errors: ["Invalid login credentials. Please try again."],

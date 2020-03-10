@@ -25,11 +25,11 @@ class DisplayMenuAndOrder extends Component {
     let result;
     if (this.state.orderDetails.hasOwnProperty("id")) {
       result = await axios.put(
-        `http://localhost:3000/api/orders/${this.state.orderDetails.id}`,
+        `/orders/${this.state.orderDetails.id}`,
         { product_id: id }
       );
     } else {
-      result = await axios.post("http://localhost:3000/api/orders", {
+      result = await axios.post("/orders", {
         product_id: id
       });
     }

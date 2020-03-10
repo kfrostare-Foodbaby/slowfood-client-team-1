@@ -4,7 +4,7 @@ describe("user can view menu by category", () => {
 
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/auth/sign_in",
+      url: "https://yummy-food-api.herokuapp.com/api/auth/sign_in",
       response: "fixture:login.json",
       headers: {
         uid: "user@mail.com"
@@ -25,7 +25,7 @@ describe("user can view menu by category", () => {
       cy.server();
       cy.route({
         method: "GET",
-        url: "http://localhost:3000/api/products",
+        url: "https://yummy-food-api.herokuapp.com/api/products",
         response: "fixture:product_data.json"
       });
     });
