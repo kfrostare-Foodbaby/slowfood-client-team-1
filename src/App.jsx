@@ -91,7 +91,7 @@ class App extends Component {
     }
     return (
       <>
-        <h1>Slowfood</h1>
+        <h1> * FoodBaby *</h1>
         {renderLogin}
         {renderRegister}
         {renderResponse}
@@ -113,22 +113,24 @@ const signupButton = {
   paddingBottom: '13px',
   alignItems: 'center',
   display: 'inline-block',
-  backgroundColor: '#4C392D',
-  color: 'white',
+  backgroundColor: '#2C120D',
+  color: 'antiquewhite',
   borderRadius: '5px',
-  fontFamily: 'Courier New'
+  fontFamily: 'sans-serif',
+  marginBottom: '50px',
+  marginTop: '',
 }
 const loginButton = {
   fontSize: '15px',
-  marginLeft: '10px',
-  paddingLeft: '25px',
-  paddingRight: '25px',
+  marginLeft: '20px',
+  paddingLeft: '35px',
+  paddingRight: '30px',
   paddingTop: '15px',
   paddingBottom: '13px',
   alignItems: 'center',
   display: 'inline-block',
-  backgroundColor: '#4C392D',
-  color: 'white',
+  backgroundColor: '#2C120D',
+  color: 'antiquewhite',
   borderRadius: '5px',
-  fontFamily: 'Courier New'
+  fontFamily: 'sans-serif'
 }

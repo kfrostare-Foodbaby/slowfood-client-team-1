@@ -8,43 +8,50 @@ body {
 }
 
 h1 {
-  font-size: 55px;
-  font-family: 'Courier New', Courier, monospace;
-  color: #D3222A;
-  text-shadow: 2px 2px 4px #000000;
+  font-size: 75px;
+  font-family: sans-serif;
+  color: #EF1852;
+  text-shadow: 2px 2px 4px #8B604A;
   display: flex;
   flex-direction: column;
-  /* margin-left: 20%; */
   margin-top: 10%;
 }
 
 h2 {
   font-size: 30px;
+  font-family: sans-serif;
+  text-align: center;
   color: ##8B604A;
   display: flex;
   flex-direction: column;
-  /* margin-left: 24%; */
-  margin-top: 0%;
+  margin-top: 15%;
 }
 
 h4 {
+  font-family: sans-serif;
   font-size: 20px;
-  color: #8B604A;
+  color: #EF1852;
   display: flex;
   flex-direction: column;
-  /* margin-left: 24%; */
   margin-top: 0%;
 }
 
 #root {
-  background-color: antiquewhite;
+  text-align: center;
+  font-family: sans-serif;
+  color: #2C120D;
+  background-color: #eeecef;
+  box-shadow: 16px 10px 15px #2C120D;
+  
   width: 40%;
+
   margin-left: 5%;
   margin-top: 5%;
+  margin-bottom: 100px;
+  
   padding-top: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 250px;
   padding-left: 25px;
   padding-right: 25px;
-  text-align: center;
-  box-shadow: 16px 10px 15px #2C120D;
+  
 }
