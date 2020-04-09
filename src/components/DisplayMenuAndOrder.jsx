@@ -170,7 +170,8 @@ class DisplayMenuAndOrder extends Component {
             <ul id="order-details">{orderDetailsDisplay}</ul>
             <p>Total: {this.state.orderDetails.order_total} kr</p>
             <button
-              onClick={this.finalizeOrder.bind(this)}
+              id="confirm"
+              onClick={this.confirmOrder.bind(this)}
               style={viewOrderButton}
             >
               Confirm!

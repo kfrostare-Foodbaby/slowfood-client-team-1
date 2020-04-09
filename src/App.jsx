@@ -97,7 +97,6 @@ class App extends Component {
         {renderResponse}
         {renderSignIn}
         {this.state.authenticated === true && <DisplayMenuAndOrder />}
-        {/* <DisplayMenuAndOrder /> */}
       </>
     );
   }
