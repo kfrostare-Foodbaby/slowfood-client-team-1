@@ -1,4 +1,5 @@
-# The Slowfood Challenge | Team 1
+# FoodBaby (client)
+![FoodBaby](public/foodbaby.png)
 ### Authors
 [Emma-Maria Thalen](https://github.com/emtalen)  
 [Kayla Woodbury](https://github.com/kaylawoodbury)  
@@ -23,7 +24,7 @@ This project is the client facing side of our Slowfood application. The master r
 
 ### Setup   
 To test this application, fork the repo to your own GitHub account and clone it to your local workspace. </br>
-*Note:*Be sure to set up backend api first (noted above), in order to fully interact with the application. 
+*Note:* Be sure to set up backend api first (noted above), in order to fully interact with the application. 
 Install all of the dependencies:    
 ```
 $ yarn install
